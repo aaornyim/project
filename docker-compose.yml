@@ -6,7 +6,7 @@ services:
     build:
       context: ./web
     ports:
-      - 81:6000 # host : container
+      - 80:6000 # host : container
     env_file:
       ./credentials.env
     volumes:
@@ -19,7 +19,7 @@ services:
     env_file:
       ./credentials.env
     ports:
-      - 3307:3307 # host : container
+      - 3306:3306 # host : container
     volumes:
       - ./db:/var/lib/mysql # persistent DB when container is stopped
     container_name: agile-db
