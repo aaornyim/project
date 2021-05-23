@@ -1,0 +1,7 @@
+[
+    {"pitch": 0, "roll": 0, "yaw": 0, "vgx": 0, "vgy": 0, "vgz": 0, "templ": 85, "temph": 88, "tof": 10, "h": 1, "bat": 83, "baro": 175.51, "time": 0, "agx": -9.0, "agy": -5.0, "agz": -997.0},
+    {"pitch": 0, "roll": 0, "yaw": 15, "vgx": 25, "vgy": 0, "vgz": 0, "templ": 85, "temph": 88, "tof": 11, "h": 1, "bat": 83, "baro": 175.51, "time": 0, "agx": -9.0, "agy": -5.0, "agz": -800.0},
+    {"pitch": 0, "roll": 0, "yaw": 0, "vgx": 50, "vgy": 0, "vgz": 1.5, "templ": 85, "temph": 88, "tof": 12, "h": 1.5, "bat": 82, "baro": 175.51, "time": 0, "agx": -8.0, "agy": -2.5, "agz": -650.0},
+    {"pitch": 0, "roll": 0, "yaw": 0, "vgx": 75, "vgy": 0, "vgz": -2.0, "templ": 85, "temph": 88, "tof": 13, "h": 1.5, "bat": 82, "baro": 175.51, "time": 0, "agx": -2.5, "agy": -0, "agz": -200.0},
+    {"pitch": 0, "roll": 30, "yaw": 0, "vgx": 100, "vgy": 0, "vgz": 0, "templ": 85, "temph": 88, "tof": 14, "h": 1, "bat": 81, "baro": 175.51, "time": 0, "agx": 0.0, "agy": 0.0, "agz": 0.0}
+]

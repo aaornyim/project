@@ -2,27 +2,20 @@ version: '3'
 
 services:
 
-  web-server:
+  backend:
     build:
-      context: ./web
+      context: ./backend
     ports:
-      - 80:6000 # host : container
-    env_file:
-      ./credentials.env
+      - 5001:5001
     volumes:
-      - ./web/src:/app
-    container_name: agile-web
+      - ./backend/src:/app
 
-  db-server:
-    image: mysql:latest
-    restart: always
-    env_file:
-      ./credentials.env
+  ui_server:
+    build:
+      context: ./frontend
+    environment:
+      - BACKEND_URL=http://backend:5001
     ports:
-      - 3306:3306 # host : container
+      - 6543:6543
     volumes:
-      - ./db:/var/lib/mysql # persistent DB when container is stopped
-    container_name: agile-db
-
-volumes:
-  database:
+      - ./frontend/src:/app
