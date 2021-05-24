@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Users</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="lab3.css">
+</head>
+
+<body>
+    <h1>Tello</h1>
+
+    <table id='tellomove'>
+        <thead>
+            <tr>
+                <th>pitch</th>
+                <th>roll</th>
+                <th>yaw</th>
+                <th>vgx</th>
+                <th>vgy</th>
+                <th>vgz</th>
+                <th>templ</th>
+                <th>temph</th>
+                <th>tof</th>
+                <th>h</th>
+                <th>bat</th>
+                <th>baro</th>
+                <th>time</th>
+                <th>agx</th>
+                <th>agy</th>
+                <th>agz</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for show in shows %}
+            <tr>
+                <td>{{show.pitch}}</td>
+                <td>{{show.roll}}</td>
+                <td>{{show.yaw}}</td>
+                <td>{{show.vgx}}</td>
+                <td>{{show.vgy}}</td>
+                <td>{{show.vgz}}</td>
+                <td>{{show.templ}}</td>
+                <td>{{show.temph}}</td>
+                <td>{{show.tof}}</td>
+                <td>{{show.h}}</td>
+                <td>{{show.bat}}</td>
+                <td>{{show.baro}}</td>
+                <td>{{show.time}}</td>
+                <td>{{show.agx}}</td>
+                <td>{{show.agy}}</td>
+                <td>{{show.agz}}</td>
+            </tr>
+            {% endfor %}
+            <script>
+                setInterval(function () {
+                    fetch('http://127.0.0.1:5001/fake_data')
+                        .then(response => response.json())
+                        .then(data => {
+                            refresh(data);
+                        }
+                        );
+
+                    function refresh(data) {
+                        let box = document.getElementById('tellomove').insertRow(-1)
+                        let cell;
+                        let i = 0;
+                        while (i < 16) {
+                            cell = box.insertCell(i)
+                            if (i == 0) {
+                                cell.append(data['pitch'])
+                            }
+                            if (i == 1) {
+                                cell.append(data['roll'])
+                            }
+                            if (i == 2) {
+                                cell.append(data['yaw'])
+                            }
+                            if (i == 3) {
+                                cell.append(data['vgx'])
+                            }
+                            if (i == 4) {
+                                cell.append(data['vgy'])
+                            }
+                            if (i == 5) {
+                                cell.append(data['vgz'])
+                            }
+                            if (i == 6) {
+                                cell.append(data['templ'])
+                            }
+                            if (i == 7) {
+                                cell.append(data['temph'])
+                            }
+                            if (i == 8) {
+                                cell.append(data['tof'])
+                            }
+                            if (i == 9) {
+                                cell.append(data['h'])
+                            }
+                            if (i == 10) {
+                                cell.append(data['bat'])
+                            }
+                            if (i == 11) {
+                                cell.append(data['baro'])
+                            }
+                            if (i == 12) {
+                                cell.append(data['time'])
+                            }
+                            if (i == 13) {
+                                cell.append(data['agx'])
+                            }
+                            if (i == 14) {
+                                cell.append(data['agy'])
+                            }
+                            if (i == 15) {
+                                cell.append(data['agz'])
+                            }
+                            i++
+                        }
+                    }
+
+                }, 3000);
+
+            </script>
+        </tbody>
+    </table>
+</body>
+</html>

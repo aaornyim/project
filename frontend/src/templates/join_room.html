@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title> join Room</title>
+    <style type="text/css">
+        .currently-active {
+            position: fixed;
+            margin: 10px;
+            padding: 5px;
+            bottom: 0;
+            left: 0;
+            border: solid 1px #AFAFAF;
+            border-radius: 6px;
+            font-family: "Arial";
+        }
+    </style>
+</head>
+<body>
+    <header> Welcome to room</header>
+
+
+    <div class="currently-active">
+        <span>Currently Active: </span><span id="active"></span>
+    </div>
+
+    Enter your username and press enter once you are done:
+    <div><input id=input placeholder="message" /></div>
+    Chat Output
+    <div id=box></div>
+    <script src=https://cdn.pubnub.com/sdk/javascript/pubnub.4.28.2.min.js></script>
+    <script>
+        (function () {
+            var pubnub = new PubNub({
+                publishKey: 'demo',
+                subscribeKey: 'demo'
+            });
+            function $(id) {
+                return document.getElementById(id);
+            }
+            var box = $('box'),
+                input = $('input'),
+                channel = '10chat-demo';
+            pubnub.addListener({
+                message: function (obj) {
+                    box.innerHTML = ('' + obj.message).replace(/[<>]/g, '') + '<br>' + box.innerHTML
+                }
+            });
+            pubnub.subscribe({
+                channels: [channel]
+            });
+            input.addEventListener('keyup', function (e) {
+                if ((e.keyCode || e.charCode) === 13) {
+                    pubnub.publish({
+                        channel: channel,
+                        message: input.value,
+                        x: (input.value = '')
+                    });
+                }
+            });
+        })();
+    </script>
+    <script src="https://cdn.pubnub.com/sdk/javascript/pubnub.4.20.2.js"></script>
+    <script type="text/javascript">
+        var active = document.getElementById('active');
+        function setCurrentlyActiveUsers(numberOfUsers) {
+            active.innerText = numberOfUsers.toString();
+        }
+        setCurrentlyActiveUsers(1);
+        var pubnub = new PubNub({
+            publishKey: '__YOUR_PUB_KEY__',
+            subscribeKey: '__YOUR_SUB_KEY__',
+            heartbeatInterval: 30
+        });
+        pubnub.addListener({
+            presence: function (presenceEvent) {
+                setCurrentlyActiveUsers(presenceEvent.occupancy);
+            }
+        });
+        pubnub.subscribe({
+            channels: ['myWebPage1'],
+            withPresence: true
+        });
+    </script>
+    <br>
+    <p> This is under construction</p>
+    <button type="button" onclick="pageRedirect3()">Home</button>
+
+</body>
+</html>
+<script>
+    function pageRedirect3() {
+        window.location.href = "http://localhost:6543/"
+    }
+</script>

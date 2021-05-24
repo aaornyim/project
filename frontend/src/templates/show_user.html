@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Users</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="lab3.css">
+</head>
+
+<body>
+    <h1>Users</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>pitch</th>
+                <th?>roll</th?>
+                <th>yaw</th>
+                <th>vgx</th>
+                <th>vgy</th>
+                <th>vgz</th>
+                <th>templ</th>
+                <th>temph</th>
+                <th>tof</th>
+                <th>h</th>
+                <th>bat</th>
+                <th>baro</th>
+                <th>time</th>
+                <th>agx</th>
+                <th>agy</th>
+                <th>agz</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr>
+                <td>{{user.pitch}}</td>
+                <td>{{user.roll}}</td>
+                <td>{{user.yaw}}</td>
+                <td>{{user.vgx}}</td>
+                <td>{{user.vgy}}</td>
+                <td>{{user.vgz}}</td>
+                <td>{{user.templ}}</td>
+                <td>{{user.temph}}</td>
+                <td>{{user.tof}}</td>
+                <td>{{user.h}}</td>
+                <td>{{user.bat}}</td>
+                <td>{{user.baro}}</td>
+                <td>{{user.time}}</td>
+                <td>{{user.agx}}</td>
+                <td>{{user.agy}}</td>
+                <td>{{user.agyz}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

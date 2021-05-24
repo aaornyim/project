@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Users</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="lab3.css">
+</head>
+
+<body>
+    <h1>TelloMoves</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>pitch</th>
+                <th>roll</th>
+                <th>yaw</th>
+                <th>vgx</th>
+                <th>vgy</th>
+                <th>vgz</th>
+                <th>templ</th>
+                <th>temph</th>
+                <th>tof</th>
+                <th>h</th>
+                <th>bat</th>
+                <th>baro</th>
+                <th>time</th>
+                <th>agx</th>
+                <th>agy</th>
+                <th>agz</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for show in shows %}
+            <tr>
+                <td>{{show .pitch}}</td>
+                <td>{{show .roll}}</td>
+                <td>{{show .yaw}}</td>
+                <td>{{show .vgx}}</td>
+                <td>{{show .vgy}}</td>
+                <td>{{show .vgz}}</td>
+                <td>{{show .templ}}</td>
+                <td>{{show .temph}}</td>
+                <td>{{show .tof}}</td>
+                <td>{{show .h}}</td>
+                <td>{{show .bat}}</td>
+                <td>{{show .baro}}</td>
+                <td>{{show .time}}</td>
+                <td>{{show .agx}}</td>
+                <td>{{show .agy}}</td>
+                <td>{{show .agz}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

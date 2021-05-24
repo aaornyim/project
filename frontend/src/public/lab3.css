@@ -1,0 +1,88 @@
+@import "compass";
+
+body, html {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    .container1, .container2, .container3
+
+{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.container1 {
+    background-image: linear-gradient(#EEBAA5, #DE7D8E 70%);
+}
+
+.container2 {
+    background: #5583BE;
+}
+
+.container3 {
+    background-image: linear-gradient(#EF4700 20%, #FF9919 90%);
+}
+
+.content {
+    background-image: url('http://gallery.yopriceville.com/var/resizes/Free-Clipart-Pictures/Silhouettes-PNG/Palm_Trees_Silhouette_PNG_Clip_Art_Image.png?m=1463584089');
+    background-size: 500px;
+    background-repeat: no-repeat;
+    height: 500px;
+    width: 500px;
+    position: absolute;
+    bottom: 0;
+    left: -120px;
+}
+
+}
+
+@keyframes opacity-change1 {
+    0%, 100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+@keyframes opacity-change2 {
+    0%, 100%, 50% {
+        opacity: 0;
+    }
+
+    25% {
+        opacity: 0.5;
+    }
+
+    75% {
+        opacity: 0.5;
+    }
+}
+
+@keyframes opacity-change3 {
+    0%, 100% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+.container1 {
+    @include animation(opacity-change1 linear 5s infinite);
+}
+
+.container2 {
+    @include animation(opacity-change2 linear 5s infinite);
+}
+
+.container3 {
+    @include animation(opacity-change3 linear 5s infinite);
+}
